@@ -1,2 +1,3 @@
 # Garrys-Mod-Rules-Menu
-Install: Put this into your garrysmod/garrysmod/lua/autorun/client
+Server use: Put this into your garrysmod/garrysmod/lua/autorun/client
+For you ONLY: garrysmod/garrysmod/lua
