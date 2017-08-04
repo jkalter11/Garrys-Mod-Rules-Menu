@@ -1,28 +1,59 @@
---[[
-Name: rules.lua
-Purpose: ditching !motd (message of the day), and having an actual rule list.
-]]
 
 /*
 If you need any help adding rules message me on steam 
 http://steamcommunity.com/id/BreadIsHere/
 */
 
-// Frame Creation
+/*
+Blur & Frame creation below
+*/
+
+ local blur = Material("pp/blurscreen")
+local function DrawBlur(panel, amount)
+	local x, y = panel:LocalToScreen(0, 0)
+	local scrW, scrH = ScrW(), ScrH()
+	surface.SetDrawColor(255, 255, 255)
+	surface.SetMaterial(blur)
+	for i = 1, 3 do
+		blur:SetFloat("$blur", (i / 3) * (amount or 6))
+		blur:Recompute()
+		render.UpdateScreenEffectTexture()
+		surface.DrawTexturedRect(x * -1, y * -1, scrW, scrH)
+	end
+end
+
+
+
+
  hook.Add( "OnPlayerChat", "OpenGUI", function( ply, text, team )	
 if (string.sub(text, 1, 6) == "!rules") then
 local pFrame = vgui.Create("DFrame")
-pFrame:SetTitle(" Rules ")  										
+pFrame:SetTitle(" Rules ")  
 pFrame:SetSize(1000, 800)
 pFrame:Center() 
 pFrame:MakePopup() 
 pFrame:ShowCloseButton(false) 
 pFrame:SetVisible(true) 
 pFrame.Paint = function(self, w, h)
-draw.RoundedBox(0, 0, 0, w, h, Color(40, 40, 40, 255))
+draw.RoundedBox(0, 0, 0, w, h, Color(40, 40, 40, 150))
+DrawBlur(self, 2)
+	draw.RoundedBox( 5, 0, 0, w, h, Color( 0, 0, 0, 200 ) )
+
+
 end
 
+ 
 
+local Frame = vgui.Create( "DFrame" )
+Frame:SetTitle( "GMOD POLICE WEEE WOOO ANTI-PASTE" ) // really simple to remove xd
+Frame:SetSize( 250, 250 )
+Frame:Center()
+Frame:MakePopup()
+Frame:ShowCloseButton(true) 
+Frame:SetVisible(true) 
+local html = vgui.Create( "HTML", Frame )
+html:Dock( FILL )
+html:OpenURL( "http://i.imgur.com/go9bvSP.png", Frame )
 
 
  
@@ -32,7 +63,7 @@ end
 */
 
 local CloseButton = vgui.Create("DButton", pFrame) 
-CloseButton:SetTextColor(Color(186, 0, 6))
+CloseButton:SetTextColor(Color(186, 0, 6, 150))
 CloseButton:SetText("close")
 CloseButton:SetFont("BudgetLabel") 
 CloseButton:SetTooltip("Closes the frame and crashes the server making it go into a deep black hole watch out bro")
@@ -43,7 +74,7 @@ CloseButton.Paint = function(self, w, h)
 end
 
 /*
-   Close button function
+   Close button functions
 */
 
 CloseButton.DoClick = function()
@@ -68,6 +99,10 @@ pLabel:SetText( [[ Out Of Character (OOC)
  character, you can be kicked or banned in most communities and servers for doing this. This includes the names over a players head
  or information learned from OOC chat.]] )
 
+
+
+
+
 local pLabel = vgui.Create( "DLabel", pFrame )
 pLabel:SetPos( 10, -300 )
 pLabel:SetSize(1000, 1000)
@@ -76,6 +111,7 @@ pLabel:SetText( [[ In Character (IC)
  IC is information, actions, and words from other characters. This information is learned on a first hand basis by your character,
  such as seeing a man being killed or the name of another character.
 ]] )
+
 
 local pLabel = vgui.Create( "DLabel", pFrame )
 pLabel:SetPos( 10, -220 )
@@ -95,6 +131,7 @@ pLabel:SetFont("BudgetLabel")
 pLabel:SetText( [[ Random Deathmatch (RDM)
  RDM is the act of killing someone for absolutely no reason and not roleplaying it out at all.
 ]] )
+
 
 local pLabel = vgui.Create( "DLabel", pFrame )
 pLabel:SetPos( 10, 50 )
