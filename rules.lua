@@ -68,10 +68,6 @@ pLabel:SetText( [[ Out Of Character (OOC)
  character, you can be kicked or banned in most communities and servers for doing this. This includes the names over a players head
  or information learned from OOC chat.]] )
 
-
-
-
-
 local pLabel = vgui.Create( "DLabel", pFrame )
 pLabel:SetPos( 10, -300 )
 pLabel:SetSize(1000, 1000)
@@ -80,7 +76,6 @@ pLabel:SetText( [[ In Character (IC)
  IC is information, actions, and words from other characters. This information is learned on a first hand basis by your character,
  such as seeing a man being killed or the name of another character.
 ]] )
-
 
 local pLabel = vgui.Create( "DLabel", pFrame )
 pLabel:SetPos( 10, -220 )
@@ -100,7 +95,6 @@ pLabel:SetFont("BudgetLabel")
 pLabel:SetText( [[ Random Deathmatch (RDM)
  RDM is the act of killing someone for absolutely no reason and not roleplaying it out at all.
 ]] )
-
 
 local pLabel = vgui.Create( "DLabel", pFrame )
 pLabel:SetPos( 10, 50 )
@@ -136,21 +130,6 @@ end )
 
 
 
--- delete /* */ if you want them back (but you have to repos them)
-/*
- Label Headers - currently disabled
-local pLabelHeader = vgui.Create( "DLabel", pFrame )
-pLabelHeader:SetPos( 10, -80 )
-pLabelHeader:SetSize(500, 500)
-pLabelHeader:SetFont("CloseCaption_Bold")
-pLabelHeader:SetText( In Character (IC) )
 
-local pLabelHeader = vgui.Create( "DLabel", pFrame )
-pLabelHeader:SetPos( 10, -180 )
-pLabelHeader:SetSize(500, 500)
-pLabelHeader:SetFont("CloseCaption_Bold")
-pLabelHeader:SetText( Out Of Character (OOC) )
-
-*/
 
 
