@@ -43,7 +43,7 @@ CloseButton.Paint = function(self, w, h)
 end
 
 /*
-   Close button functions
+   Close button function
 */
 
 CloseButton.DoClick = function()
