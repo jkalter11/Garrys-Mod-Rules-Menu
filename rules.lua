@@ -1,12 +1,11 @@
---[[
+/*
 Name: rules.lua
 Purpose: ditching !motd (message of the day), and having an actual rule list.
-]]
-
-/*
 If you need any help adding rules message me on steam 
 http://steamcommunity.com/id/BreadIsHere/
 */
+
+
 
 // Frame Creation
  hook.Add( "OnPlayerChat", "OpenGUI", function( ply, text, team )	
